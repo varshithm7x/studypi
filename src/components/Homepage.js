@@ -15,7 +15,7 @@ const Homepage = () => {
                 <div className="hero-content">
                     <div className="logo-container">
                         <img 
-                            src={isDarkTheme ? "homepage-mid-logo-dark.png" : "homepage-mid-logo-light.png"}
+                            src={process.env.PUBLIC_URL + (isDarkTheme ? "/homepage-mid-logo-dark.png" : "/homepage-mid-logo-light.png")}
                             alt="Math Logo" 
                             className="hero-logo"
                         />
