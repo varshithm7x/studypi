@@ -1,6 +1,22 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+}
+
+:root[data-theme='dark'] {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+}
+
 .App {
   text-align: center;
   min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 /* Remove or comment out all other styles like App-logo, App-header, etc. */
+
+/* Add any global styles here */

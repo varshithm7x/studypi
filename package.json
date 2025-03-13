@@ -47,5 +47,13 @@
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1"
+  },
+  "build": {
+    "env": {
+      "REACT_APP_CLERK_PUBLISHABLE_KEY": "pk_test_ZXhjaXRlZC1zdGFnLTUzLmNsZXJrLmFjY291bnRzLmRldiQ"
+    },
+    "assets": [
+      "src/assets/**"
+    ]
   }
 }
