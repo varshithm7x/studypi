@@ -25,5 +25,13 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ]
+  ],
+  "env": {
+    "REACT_APP_CLERK_PUBLISHABLE_KEY": "pk_test_ZXhjaXRlZC1zdGFnLTUzLmNsZXJrLmFjY291bnRzLmRldiQ"
+  },
+  "build": {
+    "env": {
+      "REACT_APP_CLERK_PUBLISHABLE_KEY": "pk_test_ZXhjaXRlZC1zdGFnLTUzLmNsZXJrLmFjY291bnRzLmRldiQ"
+    }
+  }
 } 

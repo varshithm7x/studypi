@@ -12,9 +12,7 @@ import AboutUs from './components/AboutUs';
 import Help from './components/Help';
 import './App.css';
 
-if (!process.env.REACT_APP_CLERK_PUBLISHABLE_KEY) {
-  throw new Error("Missing Publishable Key");
-}
+const clerkPubKey = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY || 'pk_test_ZXhjaXRlZC1zdGFnLTUzLmNsZXJrLmFjY291bnRzLmRldiQ';
 
 // Protected route component
 const ProtectedRoute = ({ children }) => {
@@ -114,7 +112,7 @@ function App() {
   return (
     <ErrorBoundary>
       <ClerkProvider 
-        publishableKey={process.env.REACT_APP_CLERK_PUBLISHABLE_KEY}
+        publishableKey={clerkPubKey}
         navigate={(to) => window.location.href = to}
         options={{
           cookieOptions: {
