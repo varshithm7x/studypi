@@ -88,30 +88,54 @@ const AppRoutes = () => {
   );
 };
 
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error('React Error:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong.</h1>;
+    }
+    return this.props.children;
+  }
+}
+
 function App() {
   return (
-    <ClerkProvider 
-      publishableKey={process.env.REACT_APP_CLERK_PUBLISHABLE_KEY}
-      navigate={(to) => window.location.href = to}
-      options={{
-        cookieOptions: {
-          httpOnly: true,
-          secure: true,
-          sameSite: 'strict'
-        },
-        tokenCache: 'cookie'
-      }}
-    >
-      <ThemeProvider>
-        <Router>
-          <div className="App">
-            <Navbar />
-            <AppRoutes />
-            <ThemeToggle />
-          </div>
-        </Router>
-      </ThemeProvider>
-    </ClerkProvider>
+    <ErrorBoundary>
+      <ClerkProvider 
+        publishableKey={process.env.REACT_APP_CLERK_PUBLISHABLE_KEY}
+        navigate={(to) => window.location.href = to}
+        options={{
+          cookieOptions: {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'strict'
+          },
+          tokenCache: 'cookie'
+        }}
+      >
+        <ThemeProvider>
+          <Router>
+            <div className="App">
+              <Navbar />
+              <AppRoutes />
+              <ThemeToggle />
+            </div>
+          </Router>
+        </ThemeProvider>
+      </ClerkProvider>
+    </ErrorBoundary>
   );
 }
 
